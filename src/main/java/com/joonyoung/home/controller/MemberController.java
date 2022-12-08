@@ -36,4 +36,26 @@ public class MemberController {
 		
 		return "index";
 	}
+	
+	@RequestMapping(value = "/login")
+	public String login() {
+		
+		return "login";
+	}
+	
+	@RequestMapping(value = "/loginFail")
+	public String loginFail() {
+		
+		return "loginFail";
+	}
+	
+	@RequestMapping(value = "/loginOk")
+	public String loginOk() {
+		return "index";
+	}
+	
+	@RequestMapping(value = "/logout")
+	public String logoutOk() {
+		return "index";
+	}
 }
