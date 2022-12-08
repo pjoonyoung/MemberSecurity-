@@ -1,15 +1,7 @@
 package com.joonyoung.home.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.SequenceGenerator;
-import javax.persistence.Table;
+import javax.persistence.*;
 
-import org.springframework.data.annotation.Id;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 import com.joonyoung.home.Role;
@@ -21,8 +13,8 @@ import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "home_member")
-@SequenceGenerator(name = "homemember_seq_generator",
-	sequenceName = "homemember_seq",
+@SequenceGenerator(name = "homemember_seq_generator", 
+	sequenceName = "homemember_seq", 
 	allocationSize = 1)
 @Data
 @AllArgsConstructor
@@ -35,7 +27,7 @@ public class Member {
 	
 	@Column(unique = true)
 	private String mid;
-
+	
 	private String mname;
 	
 	private String mpw;
@@ -52,7 +44,8 @@ public class Member {
 		member.setMname(memberDto.getMname());
 		member.setMemail(memberDto.getMemail());
 		
-		String mpw = passwordEncoder.encode(memberDto.getMpw());//암호화된 비밀번호
+		String mpw = passwordEncoder.encode(memberDto.getMpw());
+		//암호화된 비밀번호
 		member.setMpw(mpw);
 		member.setRole(Role.USER);
 		
